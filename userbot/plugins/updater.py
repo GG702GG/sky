@@ -16,8 +16,8 @@ heroku_api = "https://api.heroku.com"
 
 UPSTREAM_REPO_BRANCH = Config.UPSTREAM_REPO_BRANCH
 
-if Config.UPSTREAM_REPO == "lakasa":
-    UPSTREAM_REPO_URL = "https://github.com/THHBOB/lakasa"
+if Config.UPSTREAM_REPO == "sky":
+    UPSTREAM_REPO_URL = "https://github.com/BBHXX/sky"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 
@@ -235,7 +235,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 @bot.on(sudo_cmd(pattern="تحديث البوت$", allow_sudo=True))
 async def upstream(event):
     event = await edit_or_reply(event, "سحب التحديث  انتظر لحظة ....")
-    off_repo = "https://github.com/THHBOB/catpack"
+    off_repo = "https://github.com/BBHXX/skypack"
     os.chdir("/app")
     catcmd = f"rm -rf .git"
     try:
