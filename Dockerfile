@@ -1,7 +1,7 @@
-FROM THHBOB/lakasa:latest
+FROM BBHXX/sky:latest
 
 #clonning repo 
-RUN git clone https://github.com/THHBOB/lakasa.git /root/userbot
+RUN git clone https://github.com/BBHXX/sky.git /root/userbot
 #working directory 
 WORKDIR /root/userbot
 
