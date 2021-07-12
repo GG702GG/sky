@@ -6,7 +6,7 @@ from telethon import version
 from . import ALIVE_NAME, StartTime, catversion, get_readable_time, mention, reply_id
 
 DEFAULTUSER = ALIVE_NAME or "cat"
-CAT_IMG = Config.ALIVE_PIC or "https://telegra.ph/file/636465f8d4ffc5ee93bb2.jpg"
+CAT_IMG = Config.ALIVE_PIC or "https://telegra.ph/file/9af8c7015d398fdb9f368.jpg"
 CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "S᥆ᥙℛᥴᥱ SKY 𖣂"
 EMOJI = Config.CUSTOM_ALIVE_EMOJI or "  - ༻"
 
@@ -21,7 +21,7 @@ async def amireallyalive(alive):
     _, check_sgnirts = check_data_base_heal_th()
     if CAT_IMG:
         cat_caption = f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-        cat_caption += f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧSKYⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
+        cat_caption += f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧSKYⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
         cat_caption += f"**{EMOJI} قاعدة البيانات :** `{check_sgnirts}`\n"
         cat_caption += f"**{EMOJI} اصدار التليثون  :** `{version.__version__}\n`"
         cat_caption += f"**{EMOJI} اصدار سكاي :** `{catversion}`\n"
@@ -29,7 +29,7 @@ async def amireallyalive(alive):
         cat_caption += f"**{EMOJI} مدة التشغيل :** `{uptime}\n`"
         cat_caption += f"**{EMOJI} المستخدم:** {mention}\n"
         cat_caption += f"**{EMOJI}**  **[مطور السورس]**(t.me/EEEEE1K)  𓆰 .\n"
-        cat_caption += f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧSKYⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
+        cat_caption += f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧSKYⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
         await alive.client.send_file(
             alive.chat_id, CAT_IMG, caption=cat_caption, reply_to=reply_to_id
         )
