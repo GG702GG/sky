@@ -113,7 +113,7 @@ async def fetch_info(replied_user, event):
     last_name = last_name.replace("\u2060", "") if last_name else (" ")
     username = "@{}".format(username) if username else ("لايوجد معرف")
     user_bio = "لاتوجد نبذه" if not user_bio else user_bio
-    caption = "<b><i>˹Yꪮꪶꪖꪀᦔ˼༒࿅ ↫</i></b>\n\n"
+    caption = "<b><i>˹SKY˼༒࿅ ↫</i></b>\n\n"
     caption += f"<b>☆ F𝑖𝑟𝑠𝑡 N𝑎𝑚𝑒:</b> {first_name} {last_name}\n"
     caption += f"<b>☆ U𝑠𝑒𝑟𝑛𝑎𝑚𝑒:</b> {username}\n"
     caption += f"<b>☆ ID:</b> <code>{user_id}</code>\n"
