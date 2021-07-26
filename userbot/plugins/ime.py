@@ -1,5 +1,3 @@
-
-
 import asyncio
 import base64
 import os
@@ -61,7 +59,6 @@ async def autopic(event):
     await autopicloop()
 
 
-
 @bot.on(admin_cmd(pattern="اوتونيم$"))
 async def _(event):
     if event.fwd_from:
@@ -69,7 +66,9 @@ async def _(event):
     if gvarstatus("اوتونيم") is not None and gvarstatus("autoname") == "true":
         return await edit_delete(event, f"`الاسم التلقائي ممكّن بالفعل ⇆`")
     addgvar("اوتونيم", True)
-    await edit_delete(event, " `⇆ يتم تمڪين آݪآسـٰٖـ๋͜ــًـًًـًٍـًٍـــم آݪتݪقـﮧ̯͡ــ̷ـــآئي الان`")
+    await edit_delete(
+        event, " `⇆ يتم تمڪين آݪآسـٰٖـ๋͜ــًـًًـًٍـًٍـــم آݪتݪقـﮧ̯͡ــ̷ـــآئي الان`"
+    )
     await autoname_loop()
 
 
@@ -77,7 +76,10 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    if gvarstatus("البايو التلقائي") is not None and gvarstatus("البايو التلقائي") == "true":
+    if (
+        gvarstatus("البايو التلقائي") is not None
+        and gvarstatus("البايو التلقائي") == "true"
+    ):
         return await edit_delete(event, f"`تم تفعيل البايو التلقائي`")
     addgvar("البايو التلقائي", True)
     await edit_delete(event, "` ⇆ يتم تمڪين البايو آݪتݪقـﮧ̯͡ــ̷ـــآئي الان`")
@@ -129,16 +131,29 @@ async def _(event):  # sourcery no-metrics
             await event.client(
                 functions.account.UpdateProfileRequest(first_name=DEFAULTUSER)
             )
-            return await edit_delete(event, "`⇆تم آيقـﮧ̯͡ــ̷ـــآفـﮧ̯͡ــ̷ـــ آݪآسـٰٖـ๋͜ــًـًًـًٍـًٍـــم آݪتݪقـﮧ̯͡ــ̷ـــآئي الآن`")
-        return await edit_delete(event, "` ⇆ يتم تمڪين آݪآسـٰٖـ๋͜ــًـًًـًٍـًٍـــم آݪتݪقـﮧ̯͡ــ̷ـــآئي الان`")
+            return await edit_delete(
+                event,
+                "`⇆تم آيقـﮧ̯͡ــ̷ـــآفـﮧ̯͡ــ̷ـــ آݪآسـٰٖـ๋͜ــًـًًـًٍـًٍـــم آݪتݪقـﮧ̯͡ــ̷ـــآئي الآن`",
+            )
+        return await edit_delete(
+            event, "` ⇆ يتم تمڪين آݪآسـٰٖـ๋͜ــًـًًـًٍـًٍـــم آݪتݪقـﮧ̯͡ــ̷ـــآئي الان`"
+        )
     if input_str == "البايو التلقائي":
-        if gvarstatus("البايو التلقائي") is not None and gvarstatus("اوتونيم") == "true":
+        if (
+            gvarstatus("البايو التلقائي") is not None
+            and gvarstatus("اوتونيم") == "true"
+        ):
             delgvar("البايو التلقائي")
             await event.client(
                 functions.account.UpdateProfileRequest(about=DEFAULTUSERBIO)
             )
-            return await edit_delete(event, "`⇆ آيقـﮧ̯͡ــ̷ـــآفـﮧ̯͡ــ̷ـــ آݪبــٰٖــ۫͜ــــآيو آݪتݪقـﮧ̯͡ــ̷ـــآئي`")
-        return await edit_delete(event, "` ⇆ يتم تشــ͒͜ـًﮧ̯͡ــ̷ــــغـٰཻـــًـًًـًٍـًٍيݪههہ`")
+            return await edit_delete(
+                event,
+                "`⇆ آيقـﮧ̯͡ــ̷ـــآفـﮧ̯͡ــ̷ـــ آݪبــٰٖــ۫͜ــــآيو آݪتݪقـﮧ̯͡ــ̷ـــآئي`",
+            )
+        return await edit_delete(
+            event, "` ⇆ يتم تشــ͒͜ـًﮧ̯͡ــ̷ــــغـٰཻـــًـًًـًٍـًٍيݪههہ`"
+        )
 
 
 async def autopicloop():
@@ -265,7 +280,7 @@ async def bloom_pfploop():
 async def autoname_loop():
     AUTONAMESTART = gvarstatus("اوتونيم") == "true"
     while AUTONAMESTART:
-        DM = time.strftime("%d-%m-%y")
+        time.strftime("%d-%m-%y")
         HM = time.strftime("%I:%M")
         name = f"{HM}⇆"
         LOGS.info(name)
@@ -281,7 +296,7 @@ async def autoname_loop():
 async def autobio_loop():
     AUTOBIOSTART = gvarstatus("البايو التلقائي") == "true"
     while AUTOBIOSTART:
-        DMY = time.strftime("%d.%m.%Y")
+        time.strftime("%d.%m.%Y")
         HM = time.strftime("%I:%M:%S")
         bio = f"⇆ {HM}"
         LOGS.info(bio)
