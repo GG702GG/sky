@@ -24,9 +24,6 @@ async def _(event):
             )
 
 
-
-
-
 import random
 
 from telethon import events
