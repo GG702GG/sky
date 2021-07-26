@@ -53,7 +53,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(event, ac_br, changelog):
     changelog_str = (
-        f"**يوجد تحديث جديد ل يولاند↯ قم بالتحديث الان للتمتع بجميع الميزات الجديده **"
+        f"**يوجد تحديث جديد ل سكاي↯ قم بالتحديث الان للتمتع بجميع الميزات الجديده **"
     )
     if len(changelog_str) > 4096:
         await event.edit("`Changelog is too big, view the file to see it.`")
@@ -95,7 +95,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     await event.edit(
-        "**⪼ تم التحديث بنجاح ✅**\n **جارٍ إعادة تشغيل الروبوت ، انتظر** \n **⫷ [˹Yꪮꪶꪖꪀᦔ˼༒࿅ ↫](t.me/EEEEE1K) ⫸**"
+        "**⪼ تم التحديث بنجاح ✅**\n **جارٍ إعادة تشغيل الروبوت ، انتظر** \n **⫷ [SKY↫](t.me/EEEEE1K) ⫸**"
     )
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
@@ -160,7 +160,7 @@ async def upstream(event):
     # Special case for deploy
     if changelog == "" and not force_update:
         await event.edit(
-            "\n𓆰 SＯＵＲＣＥ YＯＬＡＮＤ 𓌺 \n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n**↲ سورس يولاند محدث لأخر اصدار ༗ **"
+            "\n𓆰 SＯＵＲＣＥ YＯＬＡＮＤ 𓌺 \n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n**↲ سورس سكاي محدث لأخر اصدار ༗ **"
             #             f"**{UPSTREAM_REPO_BRANCH}**\n"
         )
         return repo.__del__()
