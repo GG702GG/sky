@@ -109,7 +109,7 @@ async def fetch_info(replied_user, event):
         first_name.replace("\u2060", "")
         if first_name
         else ("هذا المستخدم ليس له اسم أول")
-)
+    )
     last_name = last_name.replace("\u2060", "") if last_name else (" ")
     username = "@{}".format(username) if username else ("لايوجد معرف")
     user_bio = "لاتوجد نبذه" if not user_bio else user_bio
@@ -125,6 +125,7 @@ async def fetch_info(replied_user, event):
     caption += f"<b> 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧSKYⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻 </b>\n"
     caption += f"<b> 𓆩[SOURCE SKY](http://t.me/CXRCX/342)𓆪 "
     return photo, caption
+
 
 @bot.on(admin_cmd(pattern="رابط الحساب(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="رابط الحساب(?: |$)(.*)", allow_sudo=True))
