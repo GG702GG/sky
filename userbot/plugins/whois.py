@@ -20,7 +20,7 @@ async def who(event):
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user(event)
     if replied_user is None:
-        return await edit_or_reply(cat, "لايمكنني العثور ع المستخدم")
+        return await edit_or_reply(cat, "☆:↫لايمكنني العثور ع المستخدم")
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
@@ -84,7 +84,7 @@ async def fetch_info(replied_user, event):
             user_id=replied_user.user.id, offset=42, max_id=0, limit=80
         )
     )
-    replied_user_profile_photos_count = "لاتوجد صوره بروفايل"
+    replied_user_profile_photos_count = "  ☆:↫ لاتوجد صوره بروفايل"
     try:
         replied_user_profile_photos_count = replied_user_profile_photos.count
     except AttributeError:
@@ -109,22 +109,22 @@ async def fetch_info(replied_user, event):
         first_name.replace("\u2060", "")
         if first_name
         else ("هذا المستخدم ليس له اسم أول")
-    )
+)
     last_name = last_name.replace("\u2060", "") if last_name else (" ")
     username = "@{}".format(username) if username else ("لايوجد معرف")
     user_bio = "لاتوجد نبذه" if not user_bio else user_bio
-    caption = "<b><i>˹SKY˼༒࿅ ↫</i></b>\n\n"
-    caption += f"<b>☆ F𝑖𝑟𝑠𝑡 N𝑎𝑚𝑒:</b> {first_name} {last_name}\n"
-    caption += f"<b>☆ U𝑠𝑒𝑟𝑛𝑎𝑚𝑒:</b> {username}\n"
-    caption += f"<b>☆ ID:</b> <code>{user_id}</code>\n"
-    caption += (
-        f"<b>☆ N𝑢𝑚𝑏𝑒𝑟 𝑜f P𝑟𝑜f𝑖𝑙𝑒 P𝑖𝑐𝑠 :</b> {replied_user_profile_photos_count}\n"
-    )
-    caption += f"<b>☆ B𝑖𝑜 ↬ </b> \n<code>{user_bio}</code>\n\n"
-    caption += f"<b>☆ P𝑒𝑟𝑚𝑎𝑛𝑒𝑛𝑡 L𝑖𝑛𝑘 T𝑜 P𝑟𝑜f𝑖𝑙𝑒 :</b> "
+    caption = "<b><i> 𓆩SOURCE SKY - PRO DATA𓆪 </i></b>\n"
+    caption += f"<b> 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧSKYⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻 </b>\n"
+    caption += f"<b> • 🖤 | FIRST NAME 𓆪</b> {first_name} {last_name}\n"
+    caption += f"<b> • 🖤 | USR 𓆪</b> {username}\n"
+    caption += f"<b> • 🖤 | ID 𓆪</b> <code>{user_id}</code>\n"
+    caption += f"<b> • 🖤 | NUMBR OF PRO PIC 𓆪</b> {replied_user_profile_photos_count}\n"
+    caption += f"<b> • 🖤 | BIO ↬ </b> \n {user_bio} \n"
+    caption += f"<b> • 🖤 | MY PRO LINK 𓆪</b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
+    caption += f"<b> 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧSKYⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻 </b>\n"
+    caption += f"<b> 𓆩[SOURCE SKY](http://t.me/CXRCX/342)𓆪 "
     return photo, caption
-
 
 @bot.on(admin_cmd(pattern="رابط الحساب(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="رابط الحساب(?: |$)(.*)", allow_sudo=True))
