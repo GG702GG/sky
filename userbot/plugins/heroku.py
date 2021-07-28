@@ -1,4 +1,4 @@
-# Heroku manager for icssbot
+
 
 import asyncio
 import math
@@ -16,14 +16,14 @@ HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 
 Heroku_cmd = (
-    "𓆰 𝑺𝑶𝑼𝑹𝑪𝑬 𝑰𝑪𝑺𝑺 - 𝑯𝑬𝑹𝑶𝑲𝑼 𝑽𝑨𝑹𝑺 𓆪\n"
+    " SOURCE SKY - HeRoKu ~ VaRS \n"
     "𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
-    "**⌔∮ قائـمه اوامر هيروكو :** \n"
-    "⪼ `.set var` + الفار + المتغير\n"
-    "⪼ `.get var` + الفار لعرض ما في المتغير \n"
-    "⪼ `.del var` + الفار لحذف الفار \n"
+    "**☆:↫ قائـمه اوامر هيروكو :** \n"
+    "☆:↫ `.set var` + الفار + المتغير\n"
+    "☆:↫ `.get var` + الفار لعرض ما في المتغير \n"
+    "☆:↫ `.del var` + الفار لحذف الفار \n"
     "𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
-    "𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝙞𝘾𝙎𝙎 - [𝘿𝙀𝙑](t.me/rruuurr) 𓆪"
+    "𓆩 SOURCE SKY - [Channel](http://t.me/CXRCX/342) 𓆪"
 )
 
 
@@ -33,30 +33,30 @@ async def variable(var):
     if Config.HEROKU_API_KEY is None:
         return await edit_delete(
             var,
-            "⌔∮ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_API_KEY` اذا كنت لاتعلم اين يوجد فقط اذهب الى حسابك في هيروكو ثم الى الاعدادات ستجده بالاسفل انسخه ودخله في الفار. ",
+            "☆:↫ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_API_KEY` اذا كنت لاتعلم اين يوجد فقط اذهب الى حسابك في هيروكو ثم الى الاعدادات ستجده بالاسفل انسخه ودخله في الفار. ",
         )
     if Config.HEROKU_APP_NAME is not None:
         app = Heroku.app(Config.HEROKU_APP_NAME)
     else:
         return await edit_delete(
             var,
-            "⌔∮ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_APP_NAME` اسم التطبيق اذا كنت لاتعلم.",
+            "☆:↫ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_APP_NAME` اسم التطبيق اذا كنت لاتعلم.",
         )
     exe = var.pattern_match.group(1)
     heroku_var = app.config()
     if exe == "get":
-        ics = await edit_or_reply(var, "**⌔∮ جاري الحصول على المعلومات. **")
+        ics = await edit_or_reply(var, "**☆:↫ جاري الحصول على المعلومات. **")
         await asyncio.sleep(1.0)
         try:
             variable = var.pattern_match.group(2).split()[0]
             if variable in heroku_var:
                 return await ics.edit(
-                    "𓆩 𝑺𝑶𝑼𝑹𝑪𝑬 𝑰𝑪𝑺𝑺 - 𝑮𝑶𝑵𝑭𝑰𝑮 𝑽𝑨𝑹𝑺 𓆪\n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻"
-                    f"\n **⌔∮** `{variable} = {heroku_var[variable]}` .\n"
+                    "𓆩 SOURCE SKY - 𝑮𝑶𝑵𝑭𝑰𝑮 𝑽𝑨𝑹𝑺 𓆪\n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻"
+                    f"\n **☆:↫** `{variable} = {heroku_var[variable]}` .\n"
                 )
             return await ics.edit(
-                "𓆩 𝑺𝑶𝑼𝑹𝑪𝑬 𝑰𝑪𝑺𝑺 - 𝑮𝑶𝑵𝑭𝑰𝑮 𝑽𝑨𝑹𝑺 𓆪\n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻"
-                f"\n **⌔∮ خطا :**\n-> {variable} غيـر موجود. "
+                "𓆩 SOURCE SKY - 𝑮𝑶𝑵𝑭𝑰𝑮 𝑽𝑨𝑹𝑺 𓆪\n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻"
+                f"\n **☆:↫ خطا :**\n-> {variable} غيـر موجود. "
             )
         except IndexError:
             configs = prettyjson(heroku_var.to_dict(), indent=2)
@@ -82,38 +82,38 @@ async def variable(var):
             return
     elif exe == "وضع":
         variable = "".join(var.text.split(maxsplit=2)[2:])
-        ics = await edit_or_reply(var, "**⌔∮ جاري اعداد المعلومات**")
+        ics = await edit_or_reply(var, "**☆:↫ جاري اعداد المعلومات**")
         if not variable:
-            return await ics.edit("⌔∮ .set var `<ConfigVars-name> <value>`")
+            return await ics.edit("☆:↫ .set var `<ConfigVars-name> <value>`")
         value = "".join(variable.split(maxsplit=1)[1:])
         variable = "".join(variable.split(maxsplit=1)[0])
         if not value:
-            return await ics.edit("⌔∮ .set var `<ConfigVars-name> <value>`")
+            return await ics.edit("☆:↫ .set var `<ConfigVars-name> <value>`")
         await asyncio.sleep(1.5)
         if variable in heroku_var:
             await ics.edit(
-                "**⌔∮ تم تغيـر** `{}` **:**\n **- المتغير :** `{}`".format(
+                "**☆:↫ تم تغيـر** `{}` **:**\n **- المتغير :** `{}`".format(
                     variable, value
                 )
             )
         else:
             await ics.edit(
-                "**⌔∮ تم اضافه** `{}` **:** \n**- المضاف اليه :** `{}`".format(
+                "**☆:↫ تم اضافه** `{}` **:** \n**- المضاف اليه :** `{}`".format(
                     variable, value
                 )
             )
         heroku_var[variable] = value
     elif exe == "del":
-        ics = await edit_or_reply(var, "⌔∮ الحصول على معلومات لحذف المتغير. ")
+        ics = await edit_or_reply(var, "☆:↫ الحصول على معلومات لحذف المتغير. ")
         try:
             variable = var.pattern_match.group(2).split()[0]
         except IndexError:
-            return await ics.edit("⌔∮ يرجى تحديد `Configvars` تريد حذفها. ")
+            return await ics.edit("☆:↫ يرجى تحديد `Configvars` تريد حذفها. ")
         await asyncio.sleep(1.5)
         if variable not in heroku_var:
-            return await ics.edit(f"⌔∮ `{variable}`**  غير موجود**")
+            return await ics.edit(f"☆:↫ `{variable}`**  غير موجود**")
 
-        await ics.edit(f"**⌔∮** `{variable}`  **تم حذفه بنجاح. **")
+        await ics.edit(f"**☆:↫** `{variable}`  **تم حذفه بنجاح. **")
         del heroku_var[variable]
 
 
@@ -126,14 +126,14 @@ async def dyno_usage(dyno):
     if HEROKU_APP_NAME is None:
         return await edit_delete(
             dyno,
-            "⌔∮ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_APP_NAME` اسم التطبيق اذا كنت لاتعلم.",
+            "☆:↫ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_APP_NAME` اسم التطبيق اذا كنت لاتعلم.",
         )
     if HEROKU_API_KEY is None:
         return await edit_delete(
             dyno,
-            "⌔∮ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_API_KEY` اذا كنت لاتعلم اين يوجد فقط اذهب الى حسابك في هيروكو ثم الى الاعدادات ستجده بالاسفل انسخه ودخله في الفار. ",
+            "☆:↫ اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_API_KEY` اذا كنت لاتعلم اين يوجد فقط اذهب الى حسابك في هيروكو ثم الى الاعدادات ستجده بالاسفل انسخه ودخله في الفار. ",
         )
-    dyno = await edit_or_reply(dyno, "**⌔∮ جاري المعـالجه..**")
+    dyno = await edit_or_reply(dyno, "**☆:↫ جاري المعـالجه..**")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -148,7 +148,7 @@ async def dyno_usage(dyno):
     path = "/accounts/" + user_id + "/actions/get-quota"
     r = requests.get(heroku_api + path, headers=headers)
     if r.status_code != 200:
-        return await dyno.edit("⌔∮ خطا:** شي سيء قد حدث **\n" f" ⌔∮ `{r.reason}`\n")
+        return await dyno.edit("☆:↫ خطا:** شي سيء قد حدث **\n" f" ☆:↫ `{r.reason}`\n")
     result = r.json()
     quota = result["account_quota"]
     quota_used = result["quota_used"]
@@ -173,17 +173,17 @@ async def dyno_usage(dyno):
     AppMinutes = math.floor(AppQuotaUsed % 60)
     await asyncio.sleep(1.5)
     return await dyno.edit(
-        "𓆩 𝑺𝑶𝑼𝑹𝑪𝑬 𝑰𝑪𝑺𝑺 - 𝑫𝒀𝑵𝑶 𝑼𝑺𝑨𝑮𝑬 𓆪\n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
-        f"**⌔∮ اسم التطبيق في هيروكو :**\n"
-        f"**    - معرف اشتراكك ⪼ {Config.HEROKU_APP_NAME}**"
+        "𓆩 SOURCE SKY -DYNO USAGE 𓆪\n𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
+        f"**☆:↫ اسم التطبيق في هيروكو :**\n"
+        f"**    - معرف اشتراكك ☆:↫ {Config.HEROKU_APP_NAME}**"
         f"\n\n"
-        f" **⌔∮ مدة اسـتخدامك لبوت اكسس : **\n"
+        f" **☆:↫ مدة اسـتخدامك لبوت سكاي : **\n"
         f"     -  `{AppHours}`**ساعه**  `{AppMinutes}`**دقيقه**  "
-        f"**⪼**  `{AppPercentage}`**%**"
+        f"**☆:↫**  `{AppPercentage}`**%**"
         "\n\n"
-        " **⌔∮ الساعات المتبقيه لاستخدامك : **\n"
+        " **☆:↫ الساعات المتبقيه لاستخدامك : **\n"
         f"     -  `{hours}`**ساعه**  `{minutes}`**دقيقه**  "
-        f"**⪼**  `{percentage}`**%**"
+        f"**☆:↫**  `{percentage}`**%**"
     )
 
 
