@@ -1,7 +1,5 @@
 import re
 
-from userbot import iqthon
-
 from ..core.managers import edit_or_reply
 from ..sql_helper.filter_sql import (
     add_filter,
@@ -146,7 +144,9 @@ async def add_new_filter(new_handler):
     remove_filter(str(new_handler.chat_id), keyword)
     if add_filter(str(new_handler.chat_id), keyword, string, msg_id) is True:
         return await edit_or_reply(new_handler, success.format(keyword, "Updated"))
-    await edit_or_reply(new_handler, f"**☆:↫ حـدث خطـأ عنـد تعييـن الـردّ ✕ :** {keyword}")
+    await edit_or_reply(
+        new_handler, f"**☆:↫ حـدث خطـأ عنـد تعييـن الـردّ ✕ :** {keyword}"
+    )
 
 
 @bot.admin_cmd(
