@@ -1,7 +1,7 @@
-FROM BBHXX/sky:latest
+FROM GG702GG/sky:latest
 
 #clonning repo 
-RUN git clone https://github.com/BBHXX/sky.git /root/userbot
+RUN git clone https://github.com/GG702GG/sky.git /root/userbot
 #working directory 
 WORKDIR /root/userbot
 
